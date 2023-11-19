@@ -1,25 +1,28 @@
-import { Div, Label, Input } from './Filter.styled';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectFilter } from '../redux/selectors';
-import { changeFilter } from '../redux/filter-slice';
+import { NotificationMessage } from '../NotificationMessage/NotificationMessage';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from '../redux/selectors';
+import { filterContacts } from '../redux/filtersSlice';
+import { FilterSection } from './Filter.styled';
 
-const Filter = () => {
-  const value = useSelector(selectFilter);
-  const dispatch = useDispatch();
+export const Filter = () => {
+  const { items: contacts} = useSelector(getContacts)
+  const dispatch = useDispatch()
 
-  const onChange = event => {
-    const normalizedValue = event.target.value.toLowerCase();
+  const handleFilterChange = e => {
+    dispatch(filterContacts(e.target.value.toLowerCase().trim()));
+  }
 
-    dispatch(changeFilter(normalizedValue));
-  };
-  return (
-    <Div>
-      <Label>
-        Find contacts by name
-        <Input type="text" value={value} onChange={onChange} />
-      </Label>
-    </Div>
+  return contacts.length !== 0 ? (
+    <FilterSection>
+      <label>Find contacts by name:
+      <input
+        type="text"
+        name="filter"
+        onChange={handleFilterChange}
+              />
+        </label>
+    </FilterSection>
+  ) : (
+    <NotificationMessage />
   );
 };
-
-export default Filter;
