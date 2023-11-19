@@ -11,7 +11,7 @@ export const FilterSection = styled.div`
     margin-left: 20px;
   }
   input {
-    width: 280px;
+    width: 350px;
     height: 25px;
     margin-bottom: 12px;
     font-size: 16px;

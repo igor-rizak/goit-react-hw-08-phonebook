@@ -15,7 +15,6 @@ export const StyledForm = styled(Form)`
     font-size: 20px;
     width: 300px;
     height: 40px;
-    pudding-left: 20px;
     margin-bottom: 8px;
     border: 1px solid black;
     border-radius: 4px;

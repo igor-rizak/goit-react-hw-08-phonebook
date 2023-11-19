@@ -18,7 +18,7 @@ export default function HomePage() {
       >
         <section>
           <Heading as="h1" fontSize="6xl" fontWeight="500" textAlign="center">
-            Welcome to your own Phonebook
+            Welcome to your Phonebook
           </Heading>
           <Text fontSize="3xl" fontWeight="300" textAlign="center" mt={10}>
             Let's{' '}
